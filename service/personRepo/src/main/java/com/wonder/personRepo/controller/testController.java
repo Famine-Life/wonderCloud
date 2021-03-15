@@ -1,20 +1,31 @@
 package com.wonder.personRepo.controller;
 
+import com.wonder.model.entity.personRepo;
+import com.wonder.personRepo.mapper.personRepoMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("personRepo")
 public class testController {
 
+    @Autowired
+    private personRepoMapper personRepoMapper;
+
     @GetMapping("/test")
     public Map test(){
         Map<String, Object> map = new HashMap<>();
         map.put("test","this is a PersonRepo service TEST!!!");
+        List<personRepo> personRepos = personRepoMapper.selectList(null);
+//        personRepo personRepo = new personRepo();
+//        personRepoMapper.insert(personRepo);      //自动填充字段测试。
+        map.put("list",personRepos);
         return map;
     }
 
