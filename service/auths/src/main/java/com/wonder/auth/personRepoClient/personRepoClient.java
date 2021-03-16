@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-@FeignClient("personRepo")
+@FeignClient(name = "personRepo",fallback = personRepoHystrix.class)
 public interface personRepoClient {
 
     @GetMapping("/personRepo/test")
