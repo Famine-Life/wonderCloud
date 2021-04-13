@@ -14,7 +14,7 @@ spring:
   datasource:
     url: jdbc:mysql://60.205.254.71:3306/wonder_cloud?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
     username: root
-    password: 753951
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
 
 # Mybatis-Plus配置
