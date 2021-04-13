@@ -12,9 +12,9 @@ spring:
         discovery:
             server-addr: 127.0.0.1:8848
   datasource:
-    url: jdbc:mysql://localhost:3306/wonder_cloud?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://60.205.254.71:3306/wonder_cloud?characterEncoding=utf-8&serverTimezone=GMT%2B8
     username: root
-    password: 123456
+    password: 753951
     driver-class-name: com.mysql.jdbc.Driver
 
 
