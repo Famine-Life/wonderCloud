@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: dev
+    active: pro
   application:
     name: auth
   cloud:
