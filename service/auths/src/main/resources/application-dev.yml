@@ -1,0 +1,26 @@
+server:
+    port: 8101
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: auth
+  cloud:
+    nacos:
+        #config:
+        #    file-extension: yaml
+        #    server-addr: 127.0.0.1:8848
+        discovery:
+            server-addr: 127.0.0.1:8848
+  datasource:
+    url: jdbc:mysql://localhost:3306/wonder_cloud?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+#熔断器
+feign:
+   hystrix:
+        enabled: true
