@@ -27,11 +27,11 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://60.205.254.71:3306/wonder_cloud?useUnicode=true&characterEncoding=UTF-8&useSSL=false");
+        dsc.setUrl("jdbc:mysql://localhost:3306/wonder_cloud?useUnicode=true&characterEncoding=UTF-8&useSSL=false");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("753951");
+        dsc.setPassword("123456");
         mpg.setDataSource(dsc);
 
         // 包配置
