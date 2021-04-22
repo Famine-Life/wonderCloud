@@ -6,7 +6,7 @@ import com.wonder.model.base.BaseEntity;
 import lombok.Data;
 
 @Data
-public class personRepo extends BaseEntity {
+public class PersonRepo extends BaseEntity {
     private Long userId;
     private String introdution;
     private String githubRepoUrl;

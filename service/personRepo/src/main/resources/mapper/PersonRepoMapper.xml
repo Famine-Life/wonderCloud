@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.personRepo.mapper.PersonRepoMapper">
+    <sql id="Base_Column_List">
+        id as id,
+        user_id as userId,
+        introdution as introdution,
+        github_repo_url as githubRepoUrl,
+        repo_status as repoStatus,
+        create_time as  createTime,
+        update_time as updateTime,
+        deleted as deleted
+    </sql>
+
+    <!-- 测试xml是否生效   -->
+    <select id="test" resultType="com.wonder.model.entity.PersonRepo" parameterType="Map">
+        select
+        <include refid="Base_Column_List"></include>
+        from person_repo
+        where deleted = 0
+    </select>
+</mapper>

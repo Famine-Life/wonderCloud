@@ -1,7 +1,8 @@
 package com.wonder.personRepo.controller;
 
-import com.wonder.model.entity.personRepo;
-import com.wonder.personRepo.mapper.personRepoMapper;
+import com.wonder.common.result.Result;
+import com.wonder.model.entity.PersonRepo;
+import com.wonder.personRepo.mapper.PersonRepoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,13 +17,13 @@ import java.util.Map;
 public class testController {
 
     @Autowired
-    private personRepoMapper personRepoMapper;
+    private PersonRepoMapper personRepoMapper;
 
     @GetMapping("/test")
     public Map test(){
         Map<String, Object> map = new HashMap<>();
         map.put("test","this is a PersonRepo service TEST!!!");
-        List<personRepo> personRepos = personRepoMapper.selectList(null);
+        List<PersonRepo> personRepos = personRepoMapper.selectList(null);
 //        personRepo personRepo = new personRepo();
 //        personRepoMapper.insert(personRepo);      //自动填充字段测试。
         map.put("list",personRepos);
