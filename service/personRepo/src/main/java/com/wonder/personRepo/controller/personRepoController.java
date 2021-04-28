@@ -37,10 +37,11 @@ public class personRepoController {
 
 
     /**
+     * 返回所有仓库分页信息
      * 测试maper.xml是否生效
      * @return
      */
-    @GetMapping("/test2")
+    @GetMapping("/personRepoListPage")
     public Result tt(){
         IPage<PersonRepo> PersonReposPage = personRepoService.test(1,50);
         log.info("ttttttttttttttttt+"+PersonReposPage);

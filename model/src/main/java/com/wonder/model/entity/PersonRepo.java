@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 public class PersonRepo extends BaseEntity {
     private Long userId;
+    private String title;
     private String introdution;
     private String githubRepoUrl;
     private Integer repoStatus;

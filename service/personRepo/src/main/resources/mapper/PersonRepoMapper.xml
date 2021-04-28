@@ -4,6 +4,7 @@
     <sql id="Base_Column_List">
         id as id,
         user_id as userId,
+        title as title,
         introdution as introdution,
         github_repo_url as githubRepoUrl,
         repo_status as repoStatus,
