@@ -14,8 +14,8 @@
     <modules>
         <module>auths</module>
         <module>personRepo</module>
-        <module>comments</module>
-        <module>ESservice</module>
+<!--        <module>comments</module>-->
+<!--        <module>ESservice</module>-->
     </modules>
     <dependencies>
         <dependency>
