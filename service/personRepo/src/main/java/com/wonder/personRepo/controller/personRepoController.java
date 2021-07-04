@@ -8,9 +8,8 @@ import com.wonder.personRepo.mapper.PersonRepoMapper;
 import com.wonder.personRepo.service.IPersonRepoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Wrapper;
 import java.util.List;
@@ -35,6 +34,21 @@ public class personRepoController {
         return Result.ok(personRepos);
     }
 
+    /**
+     * 增加或者更新
+     * @param personRepo
+     * @return
+     */
+    @PostMapping("/personRepo")
+    public Result postPersonRepo(
+            @RequestBody PersonRepo personRepo
+            ){
+        boolean b = personRepoService.saveOrUpdate(personRepo);
+        if(!b){
+            return Result.fail();
+        }
+        return Result.ok();
+    }
 
     /**
      * 返回所有仓库分页信息
@@ -42,7 +56,10 @@ public class personRepoController {
      * @return
      */
     @GetMapping("/personRepoListPage")
-    public Result tt(){
+    public Result tt(
+            @RequestParam(value = "pageIndex",required = false,defaultValue = "1") Integer pageIndex,
+            @RequestParam(value = "pageSize",required = false,defaultValue = "20") Integer pageSize
+    ){
         IPage<PersonRepo> PersonReposPage = personRepoService.test(1,50);
         log.info("ttttttttttttttttt+"+PersonReposPage);
         return Result.ok(PersonReposPage);
