@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Data
-public class BaseEntity implements Serializable {
+public class BaseEntity extends SuperBuild implements Serializable {
 
     @ApiModelProperty(value = "id")
     @TableId(type = IdType.AUTO)
