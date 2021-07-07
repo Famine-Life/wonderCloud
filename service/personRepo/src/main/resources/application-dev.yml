@@ -13,11 +13,18 @@ spring:
         #    server-addr: 127.0.0.1:8848
         discovery:
             server-addr: 127.0.0.1:8848
+#            ip: 1.2.3.4  #指定ip注册
   datasource:
     url: jdbc:mysql://localhost:3306/wonder_cloud?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 1000
 
 # Mybatis-Plus配置
 mybatis-plus:

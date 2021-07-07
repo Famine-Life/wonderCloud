@@ -4,14 +4,16 @@ package com.wonder.personRepo.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.wonder.common.result.Result;
 import com.wonder.model.entity.PersonRepo;
-import com.wonder.personRepo.mapper.PersonRepoMapper;
+import com.wonder.personRepo.config.RedisUtil;
 import com.wonder.personRepo.service.IPersonRepoService;
+import com.wonder.personRepo.service.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import org.springframework.boot.autoconfigure.cache.CacheProperties;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Wrapper;
+import javax.annotation.Resource;
 import java.util.List;
 
 @Slf4j
@@ -21,16 +23,28 @@ public class personRepoController {
 
     @Autowired
     private IPersonRepoService personRepoService;
-
+    @Resource
+    private RedisTemplate<String,Object> redisTemplate;
+    @Autowired
+    private RedisService redisService;
+    @Autowired
+    private RedisUtil redisUtil;
     /**
      * 返回所有仓库信息、、
      * @return
      */
     @GetMapping("/personRepoList")
     public Result personRepoList(){
+        if(redisUtil.hasKey("person-repo-list")){
+            Object o = redisUtil.get("person-repo-list");
+            log.info("======获取到person-repo-list值======"+o);
+            return Result.ok(o);
+        }
         List<PersonRepo> personRepos = personRepoService.list();
-        log.info("personRepoList获取仓库信息:");
-        personRepos.stream().forEach(System.out::println);
+        //存入redis
+        redisUtil.set("person-repo-list",personRepos,1000*60*60*24);
+//        log.info("personRepoList获取仓库信息:");
+//        personRepos.stream().forEach(System.out::println);
         return Result.ok(personRepos);
     }
 
