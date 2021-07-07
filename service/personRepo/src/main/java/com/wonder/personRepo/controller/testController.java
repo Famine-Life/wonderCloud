@@ -1,7 +1,7 @@
 package com.wonder.personRepo.controller;
 
 import com.wonder.model.entity.personRepo;
-import com.wonder.personRepo.mapper.personRepoMapper;
+import com.wonder.personRepo.mapper.PersonRepoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,7 @@ import java.util.Map;
 public class testController {
 
     @Autowired
-    private personRepoMapper personRepoMapper;
+    private PersonRepoMapper personRepoMapper;
 
     @GetMapping("/test")
     public Map test(){
