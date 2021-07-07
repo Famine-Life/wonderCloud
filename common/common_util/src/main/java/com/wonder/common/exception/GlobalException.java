@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * 自定义全局异常类
+ * 自定义全局异常类  ====没在用
  *
  * @author qy
  */

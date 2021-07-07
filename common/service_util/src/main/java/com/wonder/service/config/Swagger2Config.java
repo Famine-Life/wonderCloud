@@ -12,7 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Swagger2配置信息
+ * Swagger2配置信息   http://localhost:8101/swagger-ui.htm
  */
 @Configuration
 @EnableSwagger2
@@ -26,23 +26,23 @@ public class Swagger2Config {
                 .apiInfo(webApiInfo())
                 .select()
                 //只显示api路径下的页面
-                .paths(Predicates.and(PathSelectors.regex("/api/.*")))
+//                .paths(Predicates.and(PathSelectors.regex("/api/.*")))
                 .build();
 
     }
 
-    @Bean
-    public Docket adminApiConfig(){
-
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("adminApi")
-                .apiInfo(adminApiInfo())
-                .select()
-                //只显示admin路径下的页面
-                .paths(Predicates.and(PathSelectors.regex("/admin/.*")))
-                .build();
-
-    }
+//    @Bean
+//    public Docket adminApiConfig(){
+//
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .groupName("adminApi")
+//                .apiInfo(adminApiInfo())
+//                .select()
+//                //只显示admin路径下的页面
+//                .paths(Predicates.and(PathSelectors.regex("/admin/.*")))
+//                .build();
+//
+//    }
 
     private ApiInfo webApiInfo(){
 
@@ -50,7 +50,7 @@ public class Swagger2Config {
                 .title("网站-API文档")
                 .description("本文档描述了网站微服务接口定义")
                 .version("1.0")
-                .contact(new Contact("wonder", "http://code.gxzx.info", "xanwidtf@foxmail.com"))
+                .contact(new Contact("wonder", "http://gxzx.info", "xanwidtf@foxmail.com"))
                 .build();
     }
 
@@ -60,7 +60,7 @@ public class Swagger2Config {
                 .title("后台管理系统-API文档")
                 .description("本文档描述了后台管理系统微服务接口定义")
                 .version("1.0")
-                .contact(new Contact("wonder", "http://code.gxzx.info", "xanwidtf@foxmail.com"))
+                .contact(new Contact("wonder", "http://gxzx.info", "xanwidtf@foxmail.com"))
                 .build();
     }
 

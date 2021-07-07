@@ -16,7 +16,7 @@ public class RouteConfig {
                 .uri("lb://auth")
                 // 路由 ID，唯一
                 .id("auth"))
-                .route(r -> r.path("/personRepo/**").uri("lb://personRepo").id("personRepo"))
+                .route(r -> r.path("/api/personRepo/**").uri("lb://personRepo").id("personRepo"))
                 .build();
     }
 
